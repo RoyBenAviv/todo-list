@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 export const HomePage: React.FC = () => {
 
     const [todos, setTodos] = useState<null | Todo[]>(null)
+    const [filterBy, setFilterBy]: any = useState(null)
     useEffect(() => {
         loadTodos()
     }, [todos])
@@ -22,14 +23,15 @@ export const HomePage: React.FC = () => {
 
     const setFilter = (ev: FormEvent, filterBy: any) => {
         ev.preventDefault()
+        setFilterBy(filterBy)
+    }
+
+    const todosToShow = () => {
+        if (!filterBy) return todos;
         const regex = new RegExp(filterBy.title, 'i');
-        console.log(regex)
-        const filteredTodos: Todo[] | any = todos?.filter((todo) => {
+        return todos?.filter(todo => {
             return regex.test(todo.title)
-        })
-        console.log('filteredTodos',filteredTodos);
-        setTodos(filteredTodos)
-        console.log('todos',todos);
+        });
     }
 
     if(!todos) return <div>loading...</div>
@@ -37,7 +39,7 @@ export const HomePage: React.FC = () => {
          <main className='home-page'>
              <TodoFilter setFilter={setFilter}/>
             <ul>
-                {todos.map(todo => (
+                {todosToShow()?.map(todo => (
                     <TodoList key={todo._id} todo={todo} onRemoveTodo={onRemoveTodo} />
                 ))}
                 <Link to='/todo/edit/'>
