@@ -17,7 +17,6 @@ export const HomePage: React.FC = () => {
 
     const onRemoveTodo = (todoId: string) => {
         todoService.remove(todoId)
-        loadTodos()
     }
 
     if(!todos) return <div>loading...</div>

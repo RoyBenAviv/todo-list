@@ -42,7 +42,6 @@ function save(todo: Todo) {
 function getEmptyTodo(): Todo {
     return {
         title: '',
-        isCompleted: false,
         importancy: 0,
         doneAt: null
     };
