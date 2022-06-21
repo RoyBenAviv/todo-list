@@ -1,0 +1,19 @@
+.todo-edit {
+    h2 {
+        text-align: center;
+        margin: rem(30px) 0;
+    }
+    form {
+        @include flex(column);
+        label {
+
+            margin: rem(10px);
+            input {
+                margin-inline-start: rem(10px);
+            }
+        }
+        button {
+            margin-block-start: rem(40px);
+        }
+    }
+}

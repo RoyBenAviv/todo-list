@@ -48,7 +48,7 @@ async function save(todo: Todo): Promise<Todo> {
 function getEmptyTodo(): Todo {
     return {
         title: '',
-        importancy: 0,
+        importancy: 1,
         doneAt: ''
     };
 }

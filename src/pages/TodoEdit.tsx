@@ -26,16 +26,16 @@ export const TodoEdit: React.FC<any> = ({ match }) => {
 
   if (!todo) return <div>Loading...</div>
   return (
-    <section>
+    <section className='todo-edit'>
       <h2>{todo._id ? 'Edit' : 'Add'} Todo</h2>
       <form onSubmit={onSaveTodo}>
         <label>
-          Title
-          <input placeholder="Add title" onChange={handleChange} value={todo.title} type="text" name="title" />
+          Title:
+          <input required placeholder="Add title" onChange={handleChange} value={todo.title} type="text" name="title" />
         </label>
         <label>
-          Importancy
-          <input onChange={handleChange} value={todo.importancy} type="number" name="importancy" min="1" max="3" />
+          Importancy:
+          <input required onChange={handleChange} value={todo.importancy} type="number" name="importancy" min="1" max="3" />
         </label>
         <label>
             {'Task finished at (Optional)'}:
