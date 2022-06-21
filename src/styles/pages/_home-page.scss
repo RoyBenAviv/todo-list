@@ -1,16 +1,22 @@
 .home-page {
+    background-color: whitesmoke;
+    min-height: 90vh;
     ul {
+    padding-block-start: rem(70px);
+
         @include flex;
         gap: rem(50px);
        flex-wrap: wrap;
        .add-todo {
+        font-size: rem(20px);
         @include flex;
-        background-color: rgb(145, 145, 145);
+        background-color: white;
         border-radius: rem(10px);
         padding: rem(30px);
         height: 230px;
         width: 230px;
         text-align: center;
+        border: 1px solid #333;
        }
     }
 }

@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 export const AppHeader: React.FC = () => {
 
     return (
-        <header>
-            Todo List
+        <header className='todo-header'>
+            <h1>Todo List</h1>
         </header>
     )
 }

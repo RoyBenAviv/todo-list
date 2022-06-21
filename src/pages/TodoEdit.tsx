@@ -15,7 +15,6 @@ export const TodoEdit: React.FC<any> = ({ match }) => {
   const loadTodo = async () => {
     const id = match.params.id
     const todo = id ? await todoService.getById(id) : todoService.getEmptyTodo()
-    console.log(todo)
     setTodo(todo)
   }
 

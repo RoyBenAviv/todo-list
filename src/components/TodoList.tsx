@@ -9,12 +9,13 @@ export const TodoList: React.FC<any> = ({todo, onRemoveTodo}) => {
 
         return (
             <li className='todo-list'>
+                <span><i className="fa-solid fa-thumbtack"></i></span>
                 <h3 style={todo.doneAt ? {textDecorationLine: 'line-through'}: {}}>{todo.title}</h3>
                 <p>Importancy: {todo.importancy}</p>
                 {todo.doneAt && <p>Done at: {todo.doneAt}</p>}
                 <div className="actions">
-                <button onClick={() => history.push(`todo/edit/${todo._id}`)}>Edit</button>
-                <button onClick={() => onRemoveTodo(todo._id)}>Remove</button>
+                <button title="Edit todo" onClick={() => history.push(`todo/edit/${todo._id}`)}><i className="fa-solid fa-pen-to-square"></i></button>
+                <button title="Remove todo" onClick={() => onRemoveTodo(todo._id)}><i className="fa-solid fa-trash-can"></i></button>
                 </div>
             </li>
         );

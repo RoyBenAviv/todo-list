@@ -1,11 +1,29 @@
 .todo-list {
-    background-color: rgb(255, 137, 137);
+    position: relative;
+    background-color: #ffda62;
     border-radius: rem(10px);
+    border: 1px solid #333;
     padding: rem(30px);
     height: 230px;
     width: 230px;
     text-align: center;
+    span {
+        position: absolute;
+        left: -10px;
+        top: -10px;
+        font-size: rem(50px);
+        transform: rotate(-45deg);
+    }
+    h3 {
+        font-size: rem(20px);
+    }
     p {
         margin-block-start: rem(30px); 
+    }
+    button {
+        background: inherit;
+        border: inherit;
+        font-size: rem(20px);
+        margin: 20px;
     }
 }
