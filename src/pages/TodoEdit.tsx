@@ -1,10 +1,11 @@
-import React, { FormEvent, ReactHTMLElement, useEffect, useRef, useState } from 'react'
+import React, { FormEvent, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useForm } from '../hooks/useForm'
 import { todoService } from '../services/todo.services'
 
 export const TodoEdit: React.FC<any> = ({ match }) => {
   const [todo, handleChange, setTodo] = useForm(null)
+
   const history = useHistory()
   useEffect(() => {
     loadTodo()
@@ -20,8 +21,6 @@ export const TodoEdit: React.FC<any> = ({ match }) => {
 
   const onSaveTodo = async (ev: FormEvent) => {
     ev.preventDefault()
-    setTodo(todo)
-    
     await todoService.save({ ...todo })
     history.push('/')
   }
@@ -40,10 +39,10 @@ export const TodoEdit: React.FC<any> = ({ match }) => {
           <input onChange={handleChange} value={todo.importancy} type="number" name="importancy" min="1" max="3" />
         </label>
         <label>
-            Date?
+            {'Task finished at (Optional)'}:
         <input type="date" onChange={handleChange} value={todo.doneAt} name="doneAt" />
         </label>
-        <button>Save</button>
+        <button>Save Todo</button>
       </form>
     </section>
   )

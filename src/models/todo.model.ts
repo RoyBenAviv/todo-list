@@ -2,5 +2,5 @@ export interface Todo {
     _id?: string,
     title: string,
     importancy: number,
-    doneAt: null | number | Date
+    doneAt: string
 }

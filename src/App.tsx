@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { AppHeader } from './components/AppHeader'
 import { HomePage } from './pages/HomePage'
 import { HashRouter, Switch, Route } from 'react-router-dom'
 import { TodoEdit } from './pages/TodoEdit'
+
 const App: React.FC = () => {
   
   return (
-    <div className="App">
+    <main>
       <AppHeader />
       <HashRouter>
       <Switch>
@@ -14,7 +15,7 @@ const App: React.FC = () => {
       <Route path="/" component={HomePage} />        
       </Switch>
       </HashRouter>
-    </div>
+    </main>
   );
 }
 
