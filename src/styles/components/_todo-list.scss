@@ -1,0 +1,11 @@
+.todo-list {
+    background-color: rgb(255, 137, 137);
+    border-radius: rem(10px);
+    padding: rem(30px);
+    height: 200px;
+    width: 200px;
+    text-align: center;
+    p {
+        margin-block-start: rem(40px); 
+    }
+}

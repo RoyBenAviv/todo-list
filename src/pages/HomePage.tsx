@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { todoService } from '../services/todo.services'
 import { TodoList } from '../components/TodoList'
 import { Todo } from '../models/todo.model'
+import { Link } from 'react-router-dom'
 export const HomePage: React.FC = () => {
 
     const [todos, setTodos] = useState<null | Todo[]>(null)
@@ -17,11 +18,16 @@ export const HomePage: React.FC = () => {
 
     if(!todos) return <div>loading...</div>
      return (
-         <main>
+         <main className='home-page'>
             <ul>
                 {todos.map(todo => (
                     <TodoList key={todo._id} todo={todo} />
                 ))}
+                <Link to='/todo/edit/'>
+                <li className="add-todo">
+                    Add Todo
+                </li>
+                </Link>
             </ul>
          </main>
      )
