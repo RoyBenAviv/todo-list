@@ -8,12 +8,16 @@ export const HomePage: React.FC = () => {
     const [todos, setTodos] = useState<null | Todo[]>(null)
     useEffect(() => {
         loadTodos()
-        console.log(todos)
-    }, [])
+    }, [todos])
 
     const loadTodos = async(): Promise<void> => {
         const todos = await todoService.query()
         setTodos(todos)
+    }
+
+    const onRemoveTodo = (todoId: string) => {
+        todoService.remove(todoId)
+        loadTodos()
     }
 
     if(!todos) return <div>loading...</div>
@@ -21,7 +25,7 @@ export const HomePage: React.FC = () => {
          <main className='home-page'>
             <ul>
                 {todos.map(todo => (
-                    <TodoList key={todo._id} todo={todo} />
+                    <TodoList key={todo._id} todo={todo} onRemoveTodo={onRemoveTodo} />
                 ))}
                 <Link to='/todo/edit/'>
                 <li className="add-todo">
